@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_percent_width"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="50% width button"
+        app:layout_marginTopPercent="5%"
+        app:layout_widthPercent="50%" />
+
+    <Button
+        android:id="@+id/btn_50_aspect_ratio"
+        android:layout_below="@id/btn_percent_width"
+        android:layout_width="100dp"
+        app:layout_aspectRatio="50%" />
+
+    <Button
+        android:id="@+id/btn_100_aspect_ratio"
+        android:layout_width="100dp"
+        android:layout_below="@id/btn_percent_width"
+        android:layout_toRightOf="@id/btn_50_aspect_ratio"
+        android:text="100% aspect ratio"
+        app:layout_aspectRatio="100%" />
+
+    <Button
+        android:id="@+id/btn_200_aspect_ratio"
+        android:layout_width="100dp"
+        android:layout_below="@id/btn_percent_width"
+        android:layout_toEndOf="@id/btn_100_aspect_ratio"
+        android:text="200% aspect ratio"
+        app:layout_aspectRatio="200%" />
+
+    <TextView
+        android:id="@+id/overwriting_examples"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_50_aspect_ratio"
+        android:layout_centerHorizontal="true"
+        android:text="Overwriting attributes examples"
+        app:layout_marginTopPercent="5%" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="100dp"
+        android:layout_below="@id/overwriting_examples"
+        android:text="Not enough height"
+        app:layout_heightPercent="5%" />
+
+    <!-- app:layout_heightPercent has higher priority than android:layout_height, so the latter is ignored -->
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/overwriting_examples"
+        android:layout_toEndOf="@id/btn1"
+        android:text="Not enough height"
+        app:layout_heightPercent="5%" />
+
+    <!-- android:layout_height has higher priority than app:layout_aspectRatio, so the latter is ignored -->
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/overwriting_examples"
+        android:layout_toEndOf="@id/btn2"
+        android:text="This time height is enough"
+        app:layout_aspectRatio="20%" />
+
+
+</android.support.percent.PercentRelativeLayout>
